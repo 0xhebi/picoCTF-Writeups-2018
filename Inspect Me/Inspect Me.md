@@ -1,5 +1,4 @@
 This is intro one with inspect element
 
-<img src='indexHTML.png'/>
-
-FLAG : picoCTF{ur_4_real_1nspect0r_g4dget_b4887011}
+![alt text](Inspect Me/IndexHTML.png)
+FLAG :<b>picoCTF{ur_4_real_1nspect0r_g4dget_b4887011}</b>
