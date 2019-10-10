@@ -8,7 +8,7 @@ but that didn't lead me anywhere, so I was wondering what could it be...
   
 <q>If the users are kept in database</q>  
   
-well from that point it was clear it will be <a src="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>  
+well from that point it was clear it will be <a href="https://en.wikipedia.org/wiki/SQL_injection">SQL injection</a>  
   
 Inserting <code>' OR '1'='1</code> into user and password field resulted into  
   
