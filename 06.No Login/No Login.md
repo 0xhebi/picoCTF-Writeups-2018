@@ -1,0 +1,1 @@
+In this challenge we have a page without login form.We only have a button that when it's clicked it makes a request.
