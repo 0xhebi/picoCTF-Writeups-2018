@@ -1,4 +1,6 @@
-In this challenge we have a page without login form.We only have a button that when it's clicked it makes a request.<br>If we click on a button we can see that we are not admin.
+In this challenge we have a page without login form.We only have a button that when it's clicked it makes a request.<br>If we click on a button we can see that we are not admin.  
+
+Let's inspect headers
 
 ![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/06.No%20Login/setcookie.png)
 
