@@ -4,5 +4,10 @@ But since this server is being ran on Python's framework (Flask) , it had to do 
 
 <a href="https://pequalsnp-team.github.io/cheatsheet/flask-jinja2-ssti">Flask && jinja2 SSTI </a>  
 
-You can read more about SSTI <a href="https://portswigger.net/research/server-side-template-injection">here</a> for general concept.  
+You can read more about SSTI <a href="https://portswigger.net/research/server-side-template-injection">here</a> for general concept.
+
+So simple test that we can do is executing this kind of payload <code>{{7*7}}</code>  
+And we actually get this evaluation :  
+
+![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/11.Flaskcards/inputexample.png)
 
