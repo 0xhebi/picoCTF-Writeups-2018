@@ -11,3 +11,9 @@ And we actually get this evaluation :
 
 ![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/11.Flaskcards/inputexample.png)
 
+We see that this kind of input is being evaluated , so this template language is in use. This means we can access global config object of flask app, if we enter <code>{{config}}</code> we get all the info on it :  
+
+![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/11.Flaskcards/flag.png)  
+
+<b>FLAG : picoCTF{secret_keys_to_the_kingdom_2a7bf92c} </b>
+
