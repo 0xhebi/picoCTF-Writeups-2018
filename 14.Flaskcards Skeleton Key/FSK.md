@@ -17,6 +17,4 @@ With a some research you can find out that default <b>user_id</b> for admin shou
 
 Particularly in Flask we are using <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.sessions.SecureCookieSessionInterface">SecureCookieSessionInterface lib</a>. With itsdangerous module.
 
-So we can write some script to make that happen :  
-
-![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/14.Flaskcards%20Skeleton%20Key/CTF_cookie.py)
+So we can write some script to make that happen,check it out <a href="https://github.com/DejanJS/picoCTF-Writeups/blob/master/14.Flaskcards%20Skeleton%20Key/CTF_cookie.py">here</a>
