@@ -18,3 +18,7 @@ With a some research you can find out that default <b>user_id</b> for admin shou
 Particularly in Flask we are using <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.sessions.SecureCookieSessionInterface">SecureCookieSessionInterface lib</a> with itsdangerous module.
 
 So we can write some script to make that happen,check it out <a href="https://github.com/DejanJS/picoCTF-Writeups/blob/master/14.Flaskcards%20Skeleton%20Key/CTF_cookie.py">here</a>
+
+After we generate new cookie and replace session cookie that we are sending,when we are trying to get to log as an admin,we get the flag:  
+
+![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/14.Flaskcards%20Skeleton%20Key/flag.png)
