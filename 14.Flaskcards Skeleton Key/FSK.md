@@ -15,6 +15,6 @@ The decoded session cookie should look something like this:
 
 With a some research you can find out that default <b>user_id</b> for admin should be 0 or 1 ,so we should generate a new cookie but with value of e.g 1 for admin. And hash it again with the secret key that we were given.  
 
-Particularly in Flask we are using <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.sessions.SecureCookieSessionInterface">SecureCookieSessionInterface lib</a>. With itsdangerous module.
+Particularly in Flask we are using <a href="https://flask.palletsprojects.com/en/1.1.x/api/#flask.sessions.SecureCookieSessionInterface">SecureCookieSessionInterface lib</a> with itsdangerous module.
 
 So we can write some script to make that happen,check it out <a href="https://github.com/DejanJS/picoCTF-Writeups/blob/master/14.Flaskcards%20Skeleton%20Key/CTF_cookie.py">here</a>
