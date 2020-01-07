@@ -6,7 +6,7 @@ On the page if we try to login as admin we will get a response of not being an a
 So let's see how the CBC-byte flipping attack works, here we have flow chart for encryption diagram D1:  
 
 
-![Alt text]("https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/encrypt.jpg")  
+![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/encrypt.jpg)  
 
 The purpose of this attack is to change a byte in plaintext(Our Cookie in this case) by corrupting byte in ciphertext.Our Cookie is plaintext that is gonna be encrypted. According to attack description CBC works on a fixed length group called 'blocks'. In <a href="https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/server_noflag.py">code</a> that we are provided by the challenge, we can see that BLOCK_SIZE is 16 bytes each.
 
