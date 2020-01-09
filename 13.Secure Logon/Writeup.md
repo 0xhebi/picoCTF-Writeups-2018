@@ -12,27 +12,19 @@ The purpose of this attack is to change a byte in plaintext(Our Cookie in this c
 We have to split this json into 16 byte parts.
 For example we can do it like this:  
 
-<code>
+```python
 import json
-<br>
 cookie = "{'admin':'0','username':'asd','password':'asd'}"
-<br>
 str_byte = cookie.encode()
-<br>
 block_size = 16
-<br>
 for i in range(2):
-<br>
   if i is 0:
-  <br>
     tmp = None
-    <br>
     print(str_byte[tmp:block_size])
-    <br>
   tmp = block_size
-  <br>
   block_size = tmp + block_size
-  <br>
   print(str_byte[tmp:block_size])  
- </code>
+```
+
+
  
