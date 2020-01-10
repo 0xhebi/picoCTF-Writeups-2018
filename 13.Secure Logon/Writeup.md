@@ -26,5 +26,8 @@ for i in range(2):
   print(str_byte[tmp:block_size])  
 ```
 
-
+We have 3 blocks :  
+1.{'admin':'0','us  
+2.ername':'asd','p<br>
+3.assword':'asd'}<br>
  
