@@ -17,8 +17,8 @@ import json
 cookie = "{'admin':'0','username':'asd','password':'asd'}"
 str_byte = cookie.encode()
 block_size = 16
-for i in range(2):
-  if i is 0:
+for i in range(1,round(len(str_byte)/block_size)):
+  if i is 1:
     tmp = None
     print(str_byte[tmp:block_size])
   tmp = block_size
