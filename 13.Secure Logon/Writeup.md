@@ -38,5 +38,6 @@ CBC Encryption and Decryption can be represented with this formula:
 
 <b>C<sub>n</sub></b> and <b>P<sub>n</sub></b> are nth ciphertext blocks and plaintext , IV(Initializtion Vector) role of C<sub>0</sub> or the first starting block.
 <br>So basically we are encrypting (Ek = encrypt); Encrypt(P<sub>n</sub> XOR C<sub>n</sub> -1)<br>
+nth Plaintext block XOR with Ciphertext block - 1<br>
 <b>IV</b> should be always random and unique for each sequence, you can find more about it <a href="https://en.wikipedia.org/wiki/Initialization_vector">here</a>.We will see how this implies to our attack later..  
 So if we look at the diagram(D1) we can see that ciphertext of the first block will be used for the next block which is creating a chain to further blocks , every upcoming block is using previous ciphertext.
