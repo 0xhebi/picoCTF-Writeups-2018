@@ -34,7 +34,10 @@ We have 3 blocks :
 CBC Encryption and Decryption can be represented with this formula:  
 
 <code><b>C<sub>n</sub> = Ek(P<sub>n</sub> ⊕ C<sub>n</sub>-1)</b></code>  
-<code><b>C<sub>0</sub> = IV </b></code>  
+<code><b>C<sub>0</sub> = IV </b></code>    
+<br>
+<b>P<sub>n</sub> = Dk(C<sub>n</sub>) ⊕ C<sub>n</sub>-1<br>
+C<sub>0</sub> = IV </b>
 
 <b>C<sub>n</sub></b> and <b>P<sub>n</sub></b> are nth ciphertext blocks and plaintext , IV(Initializtion Vector) role of C<sub>0</sub> or the first starting block.
 <br>So basically we are encrypting (Ek = encrypt); Encrypt(P<sub>n</sub> XOR C<sub>n</sub> -1)<br>
