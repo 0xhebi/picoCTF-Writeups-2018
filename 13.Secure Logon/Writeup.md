@@ -53,6 +53,14 @@ In our <a href='https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secur
 We see those two functions :  
 
 ```python
+
+BLOCK_SIZE = 16  # Bytes
+
+pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * \
+                chr(BLOCK_SIZE - len(s) % BLOCK_SIZE)
+                
+unpad = lambda s: s[:-ord(s[len(s) - 1:])]
+
  def encrypt(self, raw):
         raw = pad(raw)
         iv = Random.new().read(AES.block_size)
@@ -66,4 +74,5 @@ We see those two functions :
         return unpad(cipher.decrypt(enc[16:])).decode('utf8')
 ```
 <br>
-So let's proceed with an attack and some basic explanations. 
+So let's proceed with an attack and some basic explanation. <br>
+ 
