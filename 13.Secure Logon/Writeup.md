@@ -44,6 +44,26 @@ C<sub>0</sub> = IV </b>
 nth Plaintext block XOR with Ciphertext block - 1<br>
 <b>IV</b> should be always random and unique for each sequence, you can find more about it <a href="https://en.wikipedia.org/wiki/Initialization_vector">here</a>.We will see how this implies to our attack later..  
 So if we look at the diagram(D1) we can see that ciphertext of the first block will be used for the next block which is creating a chain to further blocks , every upcoming block is using previous ciphertext.<br>  
-In decryption process it is gonna be similar tho cipher text is gonna be used as <b>IV</b> for furhter blocks which we can see on this diagram.
+In decryption process it is gonna be similar tho ciphertext is going to be used as <b>IV</b> for further blocks which we can see on this diagram.
 <br>
-![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/decrypt.jpg)
+![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/decrypt.jpg)  
+
+In our <a href='https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/server_noflag.py'>server_no_flag.py </a>  
+
+We see those two functions :  
+
+```python
+ def encrypt(self, raw):
+        raw = pad(raw)
+        iv = Random.new().read(AES.block_size)
+        cipher = AES.new(self.key, AES.MODE_CBC, iv)
+        return b64encode(iv + cipher.encrypt(raw))
+
+    def decrypt(self, enc):
+        enc = b64decode(enc)
+        iv = enc[:16]
+        cipher = AES.new(self.key, AES.MODE_CBC, iv)
+        return unpad(cipher.decrypt(enc[16:])).decode('utf8')
+```
+<br>
+So let's proceed with an attack and some basic explanations. 
