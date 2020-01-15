@@ -95,5 +95,7 @@ print(encode_cookie_admin)
 ```
 <var>cookie</var> here is a variable for my cookie that has been generated. I should have used CURL or any other similar tool to make this piece of code more dynamical but at the moment for this purpose it will be enough as an example.<br>So as we can see we have base64 encoded value. We have our <var>user_cookie</var> with value  as a response from request.<br>  
 Since our target (admin : 0) is in a first block we will have to generate IV to fill in the block and compute it with user_cookie.<br>
-<var>byte_offset</var> is going to be a number of the bit position that we are looking to flip. <br>Then bit to flip is going to be byte_offset - 16(the our "X" values for iv).<br> From there we are going to b64decode our cookie convert it into bytearray , and use our byte_to_flip position for flipping part, which we achieve by XOR-ing <code>cookie_chars[byte_to_flip] ^ ord("0") ^ ord("1")</code>
+<var>byte_offset</var> is going to be a number of the bit position that we are looking to flip. <br>Then bit to flip is going to be byte_offset - 16(the our "X" values for iv).<br> From there we are going to b64decode our cookie convert it into bytearray , and use our byte_to_flip position for flipping part, which we achieve by XOR-ing <code>cookie_chars[byte_to_flip] ^ ord("0") ^ ord("1")</code>  
+
+After encoding cookie chars and decode, we are getting new cookie with flipped value that we provide into our session.
 
