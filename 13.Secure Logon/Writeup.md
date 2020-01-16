@@ -99,3 +99,6 @@ Since our target (admin : 0) is in a first block we will have to generate IV to 
 
 After encoding cookie chars and decode, we are getting new cookie with flipped value that we provide into our session.
 
+![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/flag.png)
+
+<b>Flag</b> :  picoCTF{fl1p_4ll_th3_bit3_7d7c2296}
