@@ -1,9 +1,9 @@
 In this challenge we got login page with some crypto logic <a href="https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/server_noflag.py">here</a>  
 
-We can see that we have AES encryption included, after research you can see this is intro to <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation">CBC</a>(cipher-block chaining)-byte flipping attack.
+We can see that we have AES encryption included, after research you can see this is intro to <a href="https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation">CBC</a>(cipher-block chaining)-bit flipping attack.
 On the page if we try to login as admin we will get a response of not being an admin. If we log as a any user we will get the cookie and the decoded cookie response like this <br><code>Cookie: {'admin': 0,'username': 'asd','password':'asd'}</code>    
 
-So let's see how the CBC-byte flipping attack works, here we have flow chart for encryption diagram D1:  
+So let's see how the CBC-bit flipping attack works, here we have flow chart for encryption diagram D1:  
 
 
 ![Alt text](https://github.com/DejanJS/picoCTF-Writeups/blob/master/13.Secure%20Logon/encrypt.jpg)  
@@ -84,18 +84,18 @@ cookie = 'p0AHKFY4ZazN2iPT0OfjxKBdo9XeP0MpVQXyfodZqRY0kDxq4coWRLhxMW+nZw3shqk4Fm
 user_cookie = "{'admin': 0, 'username': '123', 'password': '123'}"
 user_cookie_with_iv = ("X" * 16) + user_cookie # 16 is block size in bytes
 byte_offset = user_cookie_with_iv.find("0") # that is value of admin 
-byte_to_flip = byte_offset - 16
+bit_to_flip = byte_offset - 16
 token = b64decode(cookie)
 
 cookie_chars = bytearray(token)
-cookie_chars[byte_to_flip] = cookie_chars[byte_to_flip] ^ ord("0") ^ ord("1")
+cookie_chars[bit_to_flip] = cookie_chars[bit_to_flip] ^ ord("0") ^ ord("1")
 encode_cookie_admin = b64encode(cookie_chars).decode("utf-8")
 
 print(encode_cookie_admin)  
 ```
 <var>cookie</var> here is a variable for my cookie that has been generated. I should have used CURL or any other similar tool to make this piece of code more dynamical but at the moment for this purpose it will be enough as an example.<br>So as we can see we have base64 encoded value. We have our <var>user_cookie</var> with value  as a response from request.<br>  
 Since our target (admin : 0) is in a first block we will have to generate IV to fill in the block and compute it with user_cookie.<br>
-<var>byte_offset</var> is going to be a number of the bit position that we are looking to flip. <br>Then bit to flip is going to be byte_offset - 16(the our "X" values for iv).<br> From there we are going to b64decode our cookie convert it into bytearray , and use our byte_to_flip position for flipping part, which we achieve by XOR-ing <code>cookie_chars[byte_to_flip] ^ ord("0") ^ ord("1")</code>  
+<var>byte_offset</var> is going to be a number of the bit position that we are looking to flip. <br>Then bit to flip is going to be byte_offset - 16(the our "X" values for iv).<br> From there we are going to b64decode our cookie convert it into bytearray , and use our bit_to_flip position for flipping part, which we achieve by XOR-ing <code>cookie_chars[bit_to_flip] ^ ord("0") ^ ord("1")</code>  
 
 After encoding cookie chars and decode, we are getting new cookie with flipped value that we provide into our session.
 
